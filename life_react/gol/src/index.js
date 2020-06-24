@@ -6,7 +6,7 @@ import './index.css';
 const Button = styled.button`
   background-color: white;
   &:hover {
-    background-color: grey;
+    background-color: #c32aff;
     color: white
   }
   width: 30%;
