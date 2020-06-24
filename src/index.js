@@ -44,7 +44,6 @@ class Grid extends React.Component{
       for (var c = 0; c < this.props.cols; c++){
         let boxId = r + "_" + c
         boxClass = this.props.gridFull[r][c] ? "box on" : "box off"
-        // push boxes on to arr
         rowsArr.push(
           <Box
           boxClass = {boxClass}
@@ -75,14 +74,11 @@ class Main extends React.Component{
 
     this.state = {
       generation: 0,
-      // create an array that is as big as the number of rows we have, and intialize each cell to false/dead 
       gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
     }
   }
 
-  // function to select each box to make it active or inactive
   selectBox = (row, col) => {
-    // make a copy of the grid
     let gridCopy = arrayClone(this.state.gridFull)
     gridCopy[row][col] = !gridCopy[row][col]
     this.setState({
@@ -91,7 +87,6 @@ class Main extends React.Component{
   }
 
   reset = () => {
-    // make a copy again
     let gridCopy = arrayClone(this.state.gridFull)
     for (let r = 0; r < this.rows; r++){
       for (let c = 0; c < this.cols; c++){
@@ -150,16 +145,12 @@ class Main extends React.Component{
   }
 
   play = () => {
-    // current copy of grid
     let g = this.state.gridFull
-    // copy of grid we're changing and setting the state to
     let g2 = arrayClone(this.state.gridFull)
 
     for (let r = 0; r < this.rows; r++){
       for (let c = 0; c < this.cols; c++){
         let count = 0
-    // if there is a neighbor, increase the count
-        // check if 
         if (r > 0) if (g[r - 1][c]) count++
         if (r> 0 && c> 0) if (g[r - 1][c - 1][c + 1]) count++
         if (r > 0 && c < this.cols - 1) if (g[r - 1][c + 1]) count++
@@ -168,9 +159,7 @@ class Main extends React.Component{
         if (r < this.rows - 1) if (g[r + 1][c - 1]) count++
         if (r < this.rows - 1 && c > 0) if (g[r + 1][c - 1]) count++
         if (r < this.rows - 1 && this.cols - 1) if (g[r + 1][c + 1]) count++ 
-        // if there are less than two OR more than three, it dies
         if (g[r][c] && (count < 2 || count > 3)) g2[r][c] = false
-        // if it is dead AND there are exactly three neighbors it lives
         if (!g[r][c] && count === 3) g2[r][c] = true
       }
     }
@@ -180,8 +169,6 @@ class Main extends React.Component{
     })
   }
 
-
-  // once everything loads randomly populate living cells
   componentDidMount(){
     this.reset()
   }
@@ -223,7 +210,6 @@ class Main extends React.Component{
 }
 
 function arrayClone(arr){
-  // deep copy
   return JSON.parse(JSON.stringify(arr))
 }
 
