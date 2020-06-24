@@ -1,0 +1,60 @@
+.box {
+  display: inline-block;
+  border: 1px solid white;
+  width: 15px;
+  height: 15px;
+  margin-left: -1px;
+  margin-bottom: -1px;
+}
+
+.on {
+  background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+  background-size: 1800% 1800%;
+  
+  -webkit-animation: rainbow 18s ease infinite;
+  -z-animation: rainbow 18s ease infinite;
+  -o-animation: rainbow 18s ease infinite;
+    animation: rainbow 18s ease infinite;
+}
+  
+@-webkit-keyframes rainbow {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbow {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+@-o-keyframes rainbow {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+@keyframes rainbow { 
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+
+
+.off {
+  background-color: black;
+  /* background-color: #00ff00; */
+}
+
+.grid {
+  width: 150px;
+  margin: auto;
+  margin-top: 20px;
+  line-height: 0
+}
+
+.title {
+  text-align: center
+}
+
+.gens {
+  text-align: center
+}
