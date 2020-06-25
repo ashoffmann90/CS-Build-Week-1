@@ -169,8 +169,13 @@ class Main extends React.Component{
     })
   }
 
+  rules = () => {
+    window.alert('Rules:\n1) A living cell dies when a cell has less than 2 OR more than 3 living neighbors.\n2) A dead cell lives when it has 3 living neighbors.')
+  }
+
   componentDidMount(){
     this.reset()
+    this.rules()
   }
 
   render(){
